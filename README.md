@@ -56,6 +56,40 @@ Star Search provides 2 simple rake tasks to get your stars.
 
 		
 		
+## Resource
+
+Heres the format of the JSON that is returned
+
+		{
+		  "stars": [
+		    {
+		      "author": "maddox",
+		      "body": "guess how that would really go down. it wouldn't be pretty",
+		      "id": "4c87354de0395a44d100000d",
+		      "type": "text",
+		      "email": "jon@mustacheinc.com",
+		      "posted_at": "2010/09/07 22:05:00 +0000",
+		      "starred_message_id": "255012243"
+		    },
+		    {
+		      "author": "maddox",
+		      "body": "then walks away",
+		      "id": "4c87354de0395a44d100000c",
+		      "type": "text",
+		      "email": "jon@mustacheinc.com",
+		      "posted_at": "2010/09/07 22:57:00 +0000",
+		      "starred_message_id": "255012225"
+		    },
+		    {
+		      "author": "maddox",
+		      "body": "remember when she's with that mexican gang, trapped, and dances for them",
+		      "id": "4c87354de0395a44d100000b",
+		      "type": "text",
+		      "email": "jon@mustacheinc.com",
+		      "posted_at": "2010/09/07 22:55:00 +0000",
+		      "starred_message_id": "255012221"
+		    }...
+		}
 		
 		
 		
