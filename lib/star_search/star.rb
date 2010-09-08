@@ -2,7 +2,7 @@ module StarSearch
   class Star
     include MongoMapper::Document
 
-    set_database_name 'stars'
+    set_database_name 'star_search'
 
     key :starred_message_id, String
     key :author, String
