@@ -4,7 +4,7 @@ require 'star_search'
 
 
 get '/stars.json' do
-  @stars = StarSearch::Star.all(:limit => 30, :offset => offset).paginated(page)
+  @stars = StarSearch::Star.all.paginated(page)
   publish_stars
 end
 
