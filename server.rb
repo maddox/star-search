@@ -4,12 +4,12 @@ require 'star_search'
 
 
 get '/stars.json' do
-  @stars = StarSearch::Star.all.paginated(page)
+  @stars = StarSearch::Star.paginated(page).all
   publish_stars
 end
 
 get '/search.json' do
-  @stars = StarSearch::Star.search(params[:q]).paginated(page)
+  @stars = StarSearch::Star.search(params[:q]).paginated(page).default_order
   publish_stars
 end
 
