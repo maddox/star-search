@@ -22,7 +22,7 @@ module StarSearch
 
       range.each do |page|
         puts "doing page #{page}"
-        new_page = agent.get("#{StarSearch.campfire_url}/files+transcripts?room_id=165670&n=#{page*14}")
+        new_page = agent.get("#{StarSearch.campfire_url}/files+transcripts?room_id=#{StarSearch.campfire_room_id}&n=#{page*14}")
         
         break unless new_page.search("div.transcript.clearfix")
         
@@ -32,7 +32,7 @@ module StarSearch
           day.search("div.stars.group table tr").each do |starred_message|
             author = starred_message.at("td.person").inner_text.strip
             starred_message_id = starred_message["id"].gsub('starred_message_', '').to_i
-            email = mogrify_user(author)
+            email = mogrify_author(author)
             date = day.at("h1 strong").inner_text
             time = starred_message.at("td.link a").inner_html
 
@@ -52,7 +52,9 @@ module StarSearch
               star.body = message.inner_text.strip
               star.type = "text"
             end
-
+            
+            star.save
+            
             stars << star
           end
         end
@@ -63,20 +65,9 @@ module StarSearch
       url[0..0] == "/" ? StarSearch.campfire_url + url : url
     end
 
-    def self.mogrify_user(username)
-      users = { "maddox" => "jon@mustacheinc.com",
-                "chris" => "chris@github.com",
-                "tpw" => "tom@github.com",
-                "scott" => "schacon@gmail.com",
-                "rtomayko" => "ryan@github.com",
-                "melissa" => "melissa@github.com",
-                "pj" => "pj@github.com",
-                "rick" => "technoweenie@gmail.com",
-                "zach" => "zach@github.com",
-                "kyle" => "kneath@gmail.com"
-              }
-
-      users[username.downcase] || username
+    def self.mogrify_author(username)
+      authors = StarSearch.mogrified_authors
+      authors[username.downcase] || username
     end
     
   end

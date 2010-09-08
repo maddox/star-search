@@ -1,3 +1,11 @@
 campfire_url: https://domain.campfirenow.com
+campfire_room_id: 324323
 campfire_username: username
 campfire_password: password
+mogrified_authors:
+    bill: bill@gmail.com
+    chris: chris@gmail.com
+    rick: rick@gmail.com
+    
+    
+    

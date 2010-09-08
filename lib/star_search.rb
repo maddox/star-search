@@ -13,6 +13,10 @@ module StarSearch
   def campfire_url
     config["campfire_url"]
   end
+
+  def campfire_room_id
+    config["campfire_room_id"]
+  end
   
   def campfire_username
     config["campfire_username"]
@@ -20,6 +24,10 @@ module StarSearch
   
   def campfire_password
     config["campfire_password"]
+  end
+
+  def mogrified_authors
+    config["mogrified_authors"]
   end
   
   def config
